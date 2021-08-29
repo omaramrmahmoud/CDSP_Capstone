@@ -1,5 +1,4 @@
 joblib==1.0.1
-~umpy==1.18.1
 streamlit==0.87.0
 numpy==1.21.2
 scikit_learn==0.24.2
