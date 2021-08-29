@@ -1,0 +1,9 @@
+streamlit==0.87.0
+numpy==1.18.1
+joblib==0.14.1
+pandas==1.0.5
+matplotlib==3.3.2
+seaborn==0.11.0
+scikit_learn==0.24.1
+xgboost==1.2.1
+datasist==1.5.3
