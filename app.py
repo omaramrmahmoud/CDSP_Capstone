@@ -1,29 +1,29 @@
 import streamlit as st
-import pandas as pd
+# import pandas as pd
 import numpy as np
 import joblib
 
 st.title('CDSP Final Project')
 st.title('Healthcare Cost Prediction')
 
-df=pd.read_csv('health_costs.csv')
-X = df.drop('charges', axis=1)
 model = joblib.load('model.h5')
 scaler = joblib.load('standard_scaler.h5')
-features=X.columns
+
+# df=pd.read_csv('health_costs.csv')
+# X = df.drop('charges', axis=1)
+#
+# features=X.columns
 
 
-st.write(f'We used the Healthcare data to predict the cost based on the following independant '
-         f'{features[0],features[1],features[2],features[3],features[4],features[5]}. The dataset is shownn below')
+st.write(f'We used the Healthcare data to predict the cost based on the following independant.')
 
-st.sidebar.write('This is the final project of the CDSP Diploma with Epsilon AI')
 st.sidebar.write('This is the final project of the CDSP Diploma with Epsilon AI')
 st.sidebar.image('logo.jfif')
 
 with st.form(key='my_form'):
     age = st.slider('How old are you?', 0, 130, 25)
 
-    sex = st.selectbox('Select Gender:', df['sex'].unique())
+    sex = st.selectbox('Select Gender:', ('Male','Female'))
 
     weight = st.number_input('Insert weight in kgs: ', min_value=1.0, step=0.1)
     height = st.number_input('Insert height in cm', min_value=1.0, step=0.1)
@@ -32,9 +32,9 @@ with st.form(key='my_form'):
 
     children = st.slider('How many children do you have?', 0, 10, 3)
 
-    smoker = st.selectbox('Do you smoke?', df['smoker'].unique())
+    smoker = st.selectbox('Do you smoke?', ('Yes','No'))
 
-    region = st.selectbox('Select Region:', df['region'].unique())
+    region = st.selectbox('Select Region:', ('Southeast','Southwest','Northeast','Northwest'))
 
     predict_button = st.form_submit_button(label='Predict')
 
